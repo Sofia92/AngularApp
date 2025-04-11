@@ -1,3 +1,1 @@
-# Angular version
-
-angular2-quickstart
+## Angular 4.0.0

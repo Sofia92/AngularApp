@@ -1,0 +1,18 @@
+/**
+ * User: sofia
+ * Date: 2018/1/11
+ * Description:
+ */
+:host {
+  display: block;
+  .container {
+    ul {
+      li {
+        width: 100px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        cursor: pointer;
+      }
+    }
+  }
+}
