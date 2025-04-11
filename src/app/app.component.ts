@@ -1,26 +1,12 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Account } from '../APIs/account';
-import { environment } from '@Env';
-import { DestroySubscription } from '@Base/directives';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+
 @Component({
   selector: 'app-root',
+  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.less']
+  styleUrl: './app.component.scss'
 })
-export class AppComponent extends DestroySubscription implements OnInit, OnDestroy {
-  production = environment.ProductionName;
-  module: string;
-  account;
-
-  constructor() {
-    super();
-  }
-
-  ngOnInit(): void {
-    this.account = Account;
-  }
-
-  ngOnDestroy(): void {
-    super.ngOnDestroy();
-  }
+export class AppComponent {
+  title = 'angularApp';
 }
