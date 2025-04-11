@@ -1,0 +1,1 @@
+window.SSO__Authority="http://sso-stable.synyi.sy";window.EMRMAINTAINER__SERVER="http://emrmantainer-5128-main.sy";
