@@ -1,8 +1,0 @@
-{
-  "/api": {
-    "target": "http://backend-4403-org-datuan.sy",
-    "changeOrigin": true,
-    "secure": false,
-    "logLevel": "debug"
-  }
-}
