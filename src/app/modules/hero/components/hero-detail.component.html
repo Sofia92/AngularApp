@@ -1,9 +1,0 @@
-<div class="container-hero-detail" *ngIf="hero">
-  <h2>Welcome to hero : {{hero.name}}</h2>
-  <div>
-    <label>{{hero.id}}</label>
-    <input type="text" [ngModel]="hero.name" (keyup.enter)="changeName($event.target.value)">
-    <button class="btn-cancel" (click)="cancel()">cancel</button>
-  </div>
-  <button class="plain-link" (click)="back()">Back</button>
-</div>

@@ -1,31 +1,38 @@
-import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from '@angular/router';
-import {CommonModule} from '@angular/common';
-import {HeroModule} from './modules/hero/hero.module';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {AppComponent} from './app.component';
-import {InitComponent} from './modules/init/InitComponent.component';
+import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { registerLocaleData } from '@angular/common';
+import zh from '@angular/common/locales/zh';
+import { AppInitService } from './app-init.service';
 
+registerLocaleData(zh);
 
-const appRoutes: Routes = [
-  {path: '', redirectTo: 'init', pathMatch: 'full'},
-  {path: 'init', component: InitComponent},
-  {path: 'heroes', loadChildren: './modules/hero/hero.module#HeroModule'}
-];
+function initializeFactory(ssoService: AppInitService): () => void {
+  return () => ssoService.appInit();
+}
 @NgModule({
+  declarations: [
+    AppComponent
+  ],
   imports: [
     BrowserModule,
-    CommonModule,
-    HeroModule,
-    RouterModule.forRoot(appRoutes)
+    HttpClientModule,
+    BrowserAnimationsModule,
   ],
-  declarations: [
-    AppComponent,
-    InitComponent
+  providers: [
+    AppInitService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeFactory,
+      deps: [AppInitService],
+      multi: true,
+    }
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
+
+
