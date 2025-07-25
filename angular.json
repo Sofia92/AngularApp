@@ -30,12 +30,7 @@
             "styles": [
               "src/styles.less"
             ],
-            "scripts": [],
-            "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/styles/"
-              ]
-            }
+            "scripts": []
           },
           "configurations": {
             "production": {
